@@ -47,13 +47,10 @@ class Main {
                 queue.removeFirst();
                 result += tmp.num * queue.removeFirst();
                 queue.addFirst(0);
-                System.out.println(result);
             } else {
                 result += tmp.num * queue.removeFirst();
-                System.out.println(result);
             }
         }
-        System.out.println(counting);
 
         System.out.println(result);
 
@@ -86,11 +83,4 @@ class Number implements Comparable<Number> {
         return Long.compare(this.num, o.num);
     }
 
-    @Override
-    public String toString() {
-        return "Number{" +
-                "num=" + num +
-                ", notZero=" + notZero +
-                '}';
-    }
 }
