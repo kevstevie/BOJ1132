@@ -32,19 +32,26 @@ class Main {
         }
         counting.sort(Comparator.naturalOrder());
 
+        Deque<Integer> queue = new LinkedList<>();
+
         int minNum = 10 - counting.size();
-        int result = 0;
-        int zeroCount = minNum;
+
+        for (int i = minNum; i < 10; i++) {
+            queue.addLast(i);
+        }
+        long result = 0;
 
         for (int i = 0; i < counting.size(); i++) {
-            if (minNum == 0 && counting.get(i).notZero){
-                counting.get(i).alphabet = zeroCount++;
-                result += counting.get(i).alphabet * counting.get(i).num;
+            Number tmp = counting.get(i);
+            if (queue.peek() == 0 && notZero[i]){
+                queue.removeLast();
+                result = tmp.num * queue.removeFirst();
+                queue.addFirst(0);
             } else {
-                counting.get(i).alphabet = minNum++;
-                result += counting.get(i).alphabet * counting.get(i).num;
+                result += tmp.num * queue.removeFirst();
             }
         }
+        System.out.println(counting);
 
         System.out.println(result);
 
@@ -54,8 +61,8 @@ class Main {
 
     }
 
-    static int times(int num){
-        int result = 1;
+    static long times(int num){
+        long result = 1;
         for (int i = 0; i < num - 1; i++) {
             result *= 10;
         }
@@ -64,7 +71,7 @@ class Main {
 }
 
 class Number implements Comparable<Number> {
-    int num;
+    long num;
     boolean notZero;
     int alphabet;
 
@@ -75,6 +82,14 @@ class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number o) {
-        return this.num - o.num;
+        return Long.compare(this.num, o.num);
+    }
+
+    @Override
+    public String toString() {
+        return "Number{" +
+                "num=" + num +
+                ", alphabet=" + alphabet +
+                '}';
     }
 }
