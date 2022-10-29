@@ -5,7 +5,7 @@ class Main {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         String[] numbers = new String[N];
-        int[] countAlphabets = new int[10];
+        long[] countAlphabets = new long[10];
         boolean[] notZero = new boolean[10];
         List<Number> counting = new ArrayList<>();
 
@@ -53,11 +53,6 @@ class Main {
         }
 
         System.out.println(result);
-
-
-
-
-
     }
 
     static long times(int num){
@@ -73,7 +68,7 @@ class Number implements Comparable<Number> {
     long num;
     boolean notZero;
 
-    public Number(int num, boolean notZero) {
+    public Number(long num, boolean notZero) {
         this.num = num;
         this.notZero = notZero;
     }
@@ -82,5 +77,4 @@ class Number implements Comparable<Number> {
     public int compareTo(Number o) {
         return Long.compare(this.num, o.num);
     }
-
 }
