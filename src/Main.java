@@ -51,7 +51,6 @@ class Main {
                 result += tmp.num * queue.removeFirst();
             }
         }
-        System.out.println(counting);
 
         System.out.println(result);
 
@@ -73,7 +72,6 @@ class Main {
 class Number implements Comparable<Number> {
     long num;
     boolean notZero;
-    int alphabet;
 
     public Number(int num, boolean notZero) {
         this.num = num;
@@ -85,11 +83,4 @@ class Number implements Comparable<Number> {
         return Long.compare(this.num, o.num);
     }
 
-    @Override
-    public String toString() {
-        return "Number{" +
-                "num=" + num +
-                ", alphabet=" + alphabet +
-                '}';
-    }
 }
