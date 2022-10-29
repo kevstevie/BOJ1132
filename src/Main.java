@@ -44,7 +44,7 @@ class Main {
         for (int i = 0; i < counting.size(); i++) {
             Number tmp = counting.get(i);
             if (queue.peek() == 0 && notZero[i]){
-                queue.removeLast();
+                queue.removeFirst();
                 result = tmp.num * queue.removeFirst();
                 queue.addFirst(0);
             } else {
