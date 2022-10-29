@@ -43,7 +43,7 @@ class Main {
 
         for (int i = 0; i < counting.size(); i++) {
             Number tmp = counting.get(i);
-            if (queue.peek() == 0 && notZero[i]){
+            if (queue.peek() == 0 && tmp.notZero){
                 queue.removeFirst();
                 result = tmp.num * queue.removeFirst();
                 queue.addFirst(0);
@@ -51,6 +51,7 @@ class Main {
                 result += tmp.num * queue.removeFirst();
             }
         }
+        System.out.println(counting);
 
         System.out.println(result);
 
@@ -83,4 +84,11 @@ class Number implements Comparable<Number> {
         return Long.compare(this.num, o.num);
     }
 
+    @Override
+    public String toString() {
+        return "Number{" +
+                "num=" + num +
+                ", notZero=" + notZero +
+                '}';
+    }
 }
