@@ -21,6 +21,7 @@ class Main {
                 countAlphabets[str.charAt(i - 'A')] += times(len - i);
             }
         }
+
     }
 
     static int times(int num){
@@ -29,5 +30,20 @@ class Main {
             result *= 10;
         }
         return result;
+    }
+}
+
+class Number implements Comparable<Number> {
+    int num;
+    boolean notZero;
+
+    public Number(int num, boolean notZero) {
+        this.num = num;
+        this.notZero = notZero;
+    }
+
+    @Override
+    public int compareTo(Number o) {
+        return this.num - o.num;
     }
 }
