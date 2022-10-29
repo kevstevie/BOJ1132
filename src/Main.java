@@ -9,6 +9,8 @@ class Main {
         boolean[] notZero = new boolean[10];
         List<Number> counting = new ArrayList<>();
 
+        sc.nextLine();
+
         for (int i = 0; i < N; i++) {
             numbers[i] = sc.nextLine();
         }
@@ -22,6 +24,7 @@ class Main {
                 countAlphabets[str.charAt(i) - 'A'] += times(len - i);
             }
         }
+
 
         for (int i = 0; i < countAlphabets.length; i++) {
             if( countAlphabets[i] == 0) continue;
