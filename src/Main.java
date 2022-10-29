@@ -45,10 +45,12 @@ class Main {
             Number tmp = counting.get(i);
             if (queue.peek() == 0 && tmp.notZero){
                 queue.removeFirst();
-                result = tmp.num * queue.removeFirst();
+                result += tmp.num * queue.removeFirst();
                 queue.addFirst(0);
+                System.out.println(result);
             } else {
                 result += tmp.num * queue.removeFirst();
+                System.out.println(result);
             }
         }
         System.out.println(counting);
