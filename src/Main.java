@@ -22,4 +22,12 @@ class Main {
             }
         }
     }
+
+    static int times(int num){
+        int result = 1;
+        for (int i = 0; i < num - 1; i++) {
+            result *= 10;
+        }
+        return result;
+    }
 }
