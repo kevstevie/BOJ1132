@@ -17,18 +17,36 @@ class Main {
             int len = str.length();
             for (int i = 0; i < len; i++) {
                 if ( i == 0 ) {
-                    notZero[str.charAt(i - 'A')] = true;
+                    notZero[str.charAt(i) - 'A'] = true;
                 }
-                countAlphabets[str.charAt(i - 'A')] += times(len - i);
+                countAlphabets[str.charAt(i) - 'A'] += times(len - i);
             }
         }
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < countAlphabets.length; i++) {
             counting.add(new Number(countAlphabets[i], notZero[i]));
+            if (counting.get(i).num == 0){
+                counting.remove(i);
+            }
         }
         counting.sort(Comparator.naturalOrder());
 
-        
+        int minNum = 10 - counting.size();
+        int result = 0;
+        int zeroCount = minNum;
+
+        for (int i = 0; i < counting.size(); i++) {
+            if (minNum == 0 && counting.get(i).notZero){
+                counting.get(i).alphabet = zeroCount++;
+                result += counting.get(i).alphabet * counting.get(i).num;
+            } else {
+                counting.get(i).alphabet = minNum++;
+                result += counting.get(i).alphabet * counting.get(i).num;
+            }
+        }
+
+        System.out.println(result);
+
 
 
 
@@ -47,6 +65,7 @@ class Main {
 class Number implements Comparable<Number> {
     int num;
     boolean notZero;
+    int alphabet;
 
     public Number(int num, boolean notZero) {
         this.num = num;
