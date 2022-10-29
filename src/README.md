@@ -10,3 +10,4 @@ https://www.acmicpc.net/problem/1132
 2. 합이 큰 알파벳부터 큰 순서대로 배열
 3. 맨 앞자리 숫자는 0을 배정하지 않을 방안?
 4. boolean과 count를 담고 있는 클래스 활용
+5. deque를 통해 알맞게 숫자를 배열해서 정답반환
