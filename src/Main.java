@@ -24,10 +24,8 @@ class Main {
         }
 
         for (int i = 0; i < countAlphabets.length; i++) {
+            if( countAlphabets[i] == 0) continue;
             counting.add(new Number(countAlphabets[i], notZero[i]));
-            if (counting.get(i).num == 0){
-                counting.remove(i);
-            }
         }
         counting.sort(Comparator.naturalOrder());
 
