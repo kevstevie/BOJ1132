@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 class Main {
     public static void main(String[] args) {
@@ -8,7 +7,7 @@ class Main {
         String[] numbers = new String[N];
         int[] countAlphabets = new int[10];
         boolean[] notZero = new boolean[10];
-        Number[] counting = new Number[N];
+        List<Number> counting = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
             numbers[i] = sc.nextLine();
@@ -25,9 +24,14 @@ class Main {
         }
 
         for (int i = 0; i < N; i++) {
-            counting[i] = new Number(countAlphabets[i], notZero[i]);
+            counting.add(new Number(countAlphabets[i], notZero[i]));
         }
-        Arrays.sort(counting);
+        counting.sort(Comparator.naturalOrder());
+
+        
+
+
+
 
     }
 
